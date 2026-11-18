@@ -3,7 +3,7 @@ import java.io.FileReader;
 
 public class GraphReader {
 
-    public boolean readGraph(String filename, AdjList adjL, AdjMatrix adjM) {
+    public boolean readGraph(String filename, AdjList adjL) {
 
         String startVertex = null;
 
@@ -29,7 +29,6 @@ public class GraphReader {
                 }
 
                 adjL.addEdge(from, to, weight);
-                adjM.addEdge(from, to, weight);
             }
 
         } catch (Exception e) {
