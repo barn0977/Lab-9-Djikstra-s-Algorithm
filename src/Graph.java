@@ -29,7 +29,7 @@ public abstract class Graph {
         }
         distance.put(source, 0.0);
         queue.addAll(vertices);
-        //This is the actually Dijstras Algorithm by dijA
+        //This is where the actually Dijkstras Algorithm is created by dijA
         while (!queue.isEmpty()) {
             Vertex dijA = queue.poll();
 
@@ -46,10 +46,7 @@ public abstract class Graph {
                 }else {
                     continue;
                 }
-                //Stops from doing the same letter
-                if (!queue.contains(dijA)) {
-                    continue;
-                }
+
                 double alg = distance.get(dijA) + edge.getWeight();
 
                 if (alg < distance.get(vertex)) {
@@ -61,6 +58,7 @@ public abstract class Graph {
                 }
             }
         }
+        //This is for the Dijsktra method closest path
         for (Vertex ver: vertices) {
             if (Double.isInfinite(distance.get(ver))) {
                 System.out.println(ver.getName() + " Cannot Be Retrieved ");
@@ -75,10 +73,10 @@ public abstract class Graph {
                 current = previous.get(current);
             }
             for (int i = 0; i < path.size(); i++) {
-                System.out.println(path.get(i).getName());
+                System.out.print(path.get(i).getName());
 
                 if (i < path.size() - 1) {
-                    System.out.println(" -> ");
+                    System.out.print(" -> ");
                 }
             }
             System.out.printf(" distance: %.1f%n", distance.get(ver));

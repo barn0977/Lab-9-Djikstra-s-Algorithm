@@ -19,7 +19,6 @@ public class AdjList extends Graph{
             vertices.add(newVertex);
         }
 
-
         return newVertex;
     }
 
